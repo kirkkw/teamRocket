@@ -52,6 +52,10 @@ app.get('/delphidata', function (req, res) {
     });
   });
 
+app.get('/home', function(req, res){res.render('home');
+});
+
+
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 });
