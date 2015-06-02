@@ -1,9 +1,10 @@
 #ethnicityGraph {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Helvetica Neue',Arial,sans-serif;
   margin: auto;
   position: relative;
   width: 100%;
-  background-color: gray;
+  background-color: white;
+  color: black;
 }
 
 text {
@@ -18,7 +19,9 @@ text {
 }
 
 form {
-  position: absolute;
-  right: 10px;
-  top: 10px;
+  position: relative;
+  left: 15px;
+  top: 15px;
+  background-color: #9595B3;
+  padding: 10px;
 }
