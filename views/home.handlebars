@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="js/smokingEthnicityD3.js"></script>
+    <link rel="stylesheet" href="css/smokingEthnicityD3.css" type = "text/css">
 
 
     <title>Smoking Trends</title>
@@ -270,6 +270,7 @@
                                 <li></li>
                                 <li></li>
                             </ul>
+
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
@@ -295,26 +296,26 @@
                             <h2>High School Teens Smoking</h2>
                             <p class="item-intro text-muted">By Ethnicity</p>
                             <img class="img-responsive" src="" alt="">
-
-                                <section class="bg-primary" id="ethnicityGraph">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-lg-8 col-lg-offset-2 text-center">
-                                                <form>
-                                                    <label><input type="radio" name="mode" value="grouped"> Grouped</label>
-                                                    <label><input type="radio" name="mode" value="stacked" checked> Stacked</label>
-                                                </form>
-                    
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
                 
                             <ul class="list-inline">
                                 <li></li>
                                 <li></li>
                                 <li></li>
                             </ul>
+
+                            <section class="bg-primary" id="ethnicityGraph">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8 col-lg-offset-2 text-center">
+                                            <form>
+                                                <label><input type="radio" name="mode" value="grouped"> Grouped</label>
+                                                <label><input type="radio" name="mode" value="stacked" checked> Stacked</label>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
@@ -401,6 +402,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    <script src="js/smokingEthnicityD3.js"></script>
 
 </body>
 
