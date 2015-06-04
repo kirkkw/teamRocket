@@ -41,7 +41,8 @@ app.get('/delphidata', function (req, res) {
     pg.connect(conString, function(err, client, done) {
       if(err) return console.log(err);
       
-      var query = 'SELECT * FROM cdph_smoking_prevalence_in_adults_1984_2013';
+      //var query = 'SELECT * FROM cdph_smoking_prevalence_in_adults_1984_2013';
+      var query = 'SELECT * FROM cdph_smoking_prevalence_in_high_school_2001_2012'; // UNION SELECT * FROM cdph_smoking_prevalence_in_high_school_by_race_2001_2012';
       client.query(query, function(err, result) {
         // return the client to the connection pool for other requests to reuse
         done();
@@ -52,9 +53,31 @@ app.get('/delphidata', function (req, res) {
     });
   });
 
+
+app.get('/delphidata2', function (req, res) {
+    // initialize connection pool 
+    pg.connect(conString, function(err, client, done) {
+      if(err) return console.log(err);
+      
+      //var query = 'SELECT * FROM cdph_smoking_prevalence_in_adults_1984_2013';
+      var query = 'SELECT * FROM cdph_smoking_prevalence_in_high_school_by_race_ethn_2001_2012';
+      client.query(query, function(err, result) {
+        // return the client to the connection pool for other requests to reuse
+        done();
+
+        res.writeHead("200", {'content-type': 'application/json'});
+        res.end(JSON.stringify(result.rows));
+      });
+    });
+  });
+
+
 app.get('/home', function(req, res){res.render('home');
 });
 
+app.get('/index2', function(req, res){
+  res.render('index2');
+});
 
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));

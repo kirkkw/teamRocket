@@ -1,5 +1,8 @@
+d3.json('/delphiData2', function(error, data) {
+
 var dataset = ["2001-2002", "2003-2004", "2005-2006","2007-2008",
                 "2009-2010","2011-2012"]
+
 
 var n = 4, // number of layers
     m = 6, // number of samples per layer
@@ -43,6 +46,7 @@ var svg = d3.select("#ethnicityGraph").append("svg")
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+
 var layer = svg.selectAll(".layer")
     .data(layers)
   .enter().append("g")
@@ -53,7 +57,7 @@ var rect = layer.selectAll("rect")
     .data(function(d) { return d; })
   .enter().append("rect")
     .attr("x", function(d) { return x(d.x); })
-    .attr("y", height)
+    .attr("y", function(d) { return y(yStackMax); })
     .attr("width", x.rangeBand())
     .attr("height", 0);
 
@@ -129,3 +133,5 @@ function bumpLayer(n, o) {
   for (i = 0; i < 5; ++i) bump(a);
   return a.map(function(d, i) { return {x: i, y: Math.max(0, d)}; });
 }
+
+});
