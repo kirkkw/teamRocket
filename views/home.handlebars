@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.css">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.10/c3.js"></script>    
+    <link rel="stylesheet" href="css/smokingEthnicityD3.css" type = "text/css">
+
 
     <title>Smoking Trends</title>
 
@@ -260,13 +265,16 @@
                             <h2>High School Teens Smoking</h2>
                             <p class="item-intro text-muted">By Gender</p>
                             <img class="img-responsive" src="" alt="">
+                        
+                            <div id="chart"></div>
 
-                
+                                
                             <ul class="list-inline">
                                 <li></li>
                                 <li></li>
                                 <li></li>
                             </ul>
+
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
@@ -286,19 +294,35 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-lg-8 col-lg-offset-1">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
                             <h2>High School Teens Smoking</h2>
                             <p class="item-intro text-muted">By Ethnicity</p>
                             <img class="img-responsive" src="" alt="">
-
                 
                             <ul class="list-inline">
                                 <li></li>
                                 <li></li>
                                 <li></li>
                             </ul>
+
+                            <div class="bg-primary" id="ethnicityGraph">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8 text-center">
+                                            <form>
+                                                <h3> <b>Graphs</b> </h3>
+                                                <label><input type="radio" name="mode" value="grouped"> By Ethnicity</label>
+                                                <label><input type="radio" name="mode" value="stacked" checked> By Total</label>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </br></br>
+
+                            </br></br></br></br>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
@@ -385,6 +409,10 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    <script src="js/smokingEthnicityD3.js"></script>
+    <script src="js/smokingGender.js"></script>
+
+
 
 </body>
 
