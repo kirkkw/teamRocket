@@ -13,4 +13,66 @@
     <tbody id="delphi-table">
     </tbody>
   </table>
+  <button onclick="transition()">Update</button>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="js/smokingGender.js"></script>
 </div>
+
+<!--<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+	</style>
+  <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmiQDA_HPvQM_iGbdiz2PYEdFaqAjfwCc">
+    </script>
+	<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false">
+	</script>
+	<script src="js/heatmap.js"> 
+	</script>
+	<body>
+    <div id="map-canvas"></div>
+	</body>
+	</head>
+	 -->
+<head>
+    <meta charset="utf-8">
+    <title>Heatmaps</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=visualization"></script>
+	<script src="js/heatmap.js"> 
+	</script>
+ </head>
+ 
+ <body>
+    <div id="panel">
+      <button onclick="toggleHeatmap()">Toggle Heatmap</button>
+      <button onclick="changeGradient()">Change gradient</button>
+      <button onclick="changeRadius()">Change radius</button>
+      <button onclick="changeOpacity()">Change opacity</button>
+    </div>
+    <div id="map-canvas"></div>
+  </body>
