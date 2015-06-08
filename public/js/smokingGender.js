@@ -1,17 +1,5 @@
 
 
-//C3 Pie Chart for Gender 
-
-//(function() {
-//  $.getJSON( '/delphidata')
-//    .done(function( data ) {
-//      var yCounts = data.users.map(function(item){
-//        return item.percent_current_smokers;
-//      });
-
-//       yCounts.unshift('Gender Smokes');
-
-
 
 /////////////////////////////Line chart////////////////////
 
@@ -37,36 +25,4 @@ var chart = c3.generate({
         }
     }
 });
-
-
-///////////Stacked Bar chart///////////////////
-/*
-    var chart = c3.generate({
-    bindto: '#chart',
-    data: {
-    	x: 'x',
-        columns: [
-        	['x', 2002, 2004, 2006, 2008, 2010, 2012],
-            ['male', 16.2, 14.4, 17.1, 12.3, 16.3, 13], //make
-            ['female', 15.7, 11.9, 13.7, 16.8, 11.1, 8]	//female
-        ],
-        type: 'bar',
-        groups: [
-            ['male', 'female']
-        ]
-    },
-    grid: {
-        y: {
-            lines: [{value:0}]
-        }
-    }
-});
-
-*/
-
-
-
-//   });
-//})();
-
 
