@@ -71,6 +71,23 @@ app.get('/delphidata2', function (req, res) {
     });
   });
 
+app.get('/delphidata3', function (req, res) {
+    // initialize connection pool 
+    pg.connect(conString, function(err, client, done) {
+      if(err) return console.log(err);
+      
+      //var query = 'SELECT * FROM cdph_smoking_prevalence_in_adults_1984_2013';
+      var query = 'SELECT * FROM hhsa_san_diego_demographics_median_income_2012_norm';
+      client.query(query, function(err, result) {
+        // return the client to the connection pool for other requests to reuse
+        done();
+
+        res.writeHead("200", {'content-type': 'application/json'});
+        res.end(JSON.stringify(result.rows));
+      });
+    });
+  });
+
 
 app.get('/home', function(req, res){res.render('home');
 });
