@@ -7,11 +7,18 @@
       "option4":"Under 12"
       },
       {
-      "question":"Are you a Stressed Out?",
+      "question":"Are you Stressed Out?",
       "option1":"Nope, and I don't sress easily",
       "option2":"Ehh, Sometimes",
       "option3":"YES, Always",
       "option4":"Nah I'm just chilling"
+      },
+      {
+      "question":"Do you give into peer pressure?",
+      "option1":"I try not to",
+      "option2":"Ehh, Sometimes",
+      "option3":"YES, Always",
+      "option4":"Nah I'm strong"
       },
       {
       "question":"Do you have friends that smoke?",
@@ -42,4 +49,5 @@
       "option4":"Nope"
       }
       ]
-      }
+}
+
