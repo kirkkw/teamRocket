@@ -117,6 +117,9 @@ app.get('/index2', function(req, res){
   res.render('index2');
 });
 
+app.get('/quiz', function(req, res){res.render('quiz');
+});
+
 http.createServer(app).listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 });

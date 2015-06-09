@@ -1,0 +1,21 @@
+ {"quizlist":[
+      {
+      "question":"Do you have friends that smoke?",
+      "option1":"Yes",
+      "option2":"Yes, but we're not that close",
+      "option3":"No"
+      },
+      {
+      "question":"Do you have family members that smoke?",
+      "option1":"Yes, my immediate family",
+      "option2":"Yes, but I don't really see them often",
+      "option3":"No"
+      },
+      {
+      "question":"Have you ever had a significant other or best friend that smoked",
+      "option1":"Yes",
+      "option2":"Yes, not best friend, but a really good friend",
+      "option3":"No"
+      }
+      ]
+      }
