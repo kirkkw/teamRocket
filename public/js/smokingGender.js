@@ -3,7 +3,6 @@
 
 /////////////////////////////Line chart////////////////////
 
-
 var chart = c3.generate({
 	bindto: '#chart',
     data: {
@@ -25,4 +24,10 @@ var chart = c3.generate({
         }
     }
 });
+
+chart.resize({
+  height: 480,
+  width: 640
+});
+
 
