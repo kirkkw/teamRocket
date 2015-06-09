@@ -154,6 +154,10 @@ function initialize() {
   heatmap.setMap(map);
 }
 
+ $('portfolioModal4').on('shown.bs.modal', function(e){
+		google.maps.event.trigger(map, 'resize');
+    });
+
 function toggleHeatmap() {
   heatmap.setMap(heatmap.getMap() ? null : map);
 }
@@ -179,7 +183,7 @@ function changeGradient() {
 }
 
 function changeRadius() {
-  heatmap.set('radius', heatmap.get('radius') ? null : 20);
+  heatmap.set('radius', heatmap.get('radius') ? null : 50);
 }
 
 function changeOpacity() {
