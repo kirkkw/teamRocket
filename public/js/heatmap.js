@@ -54,7 +54,7 @@ var taxiData = [
   {location: new google.maps.LatLng(33.0358, -116.8706), weight: 88991/121168 * 10}, //"Ramona"
   {location: new google.maps.LatLng(32.9980,  -117.2339), weight: 103305/121168 * 10}, //San Dieguito
   {location: new google.maps.LatLng(33.1419, -117.1703), weight: 65489/121168 * 10}, //"San Marcos"
-  {location: new google.maps.LatLng(32.8697, 116.9711), weight: 78300/121168 * 10}, //"Santee"
+  {location: new google.maps.LatLng(32.8697, -116.9711), weight: 78300/121168 * 10}, //"Santee"
   {location: new google.maps.LatLng(32.36 , -117.0702), weight: 54417/121168 * 10}, //South Bay
   {location: new google.maps.LatLng(32.704256, -117.043411), weight: 56626/121168 * 10}, //Southeastern San Diego
   {location: new google.maps.LatLng(32.7344 , -116.9814), weight: 74965/121168 * 10}, //"Spring Valley"
@@ -98,7 +98,7 @@ var markLoc = [
   [33.0358, -116.8706, "Median Income: $88991", json[30].Area], //"Ramona"
   [32.9980,  -117.2339, "Median Income: $103305", json[31].Area], //San Dieguito
   [33.1419, -117.1703, "Median Income: $65489", json[32].Area], //"San Marcos"
-  [32.8697, 116.9711, "Median Income: $78300", json[33].Area], //"Santee"
+  [32.8697, -116.9711, "Median Income: $78300", json[33].Area], //"Santee"
   [32.36 , -117.0702, "Median Income: $54417", json[34].Area], //South Bay
   [32.704256, -117.043411, "Median Income: $56626", json[35].Area], //Southeastern San Diego
   [32.7344 , -116.9814, "Median Income: $74965", json[36].Area], //"Spring Valley"
