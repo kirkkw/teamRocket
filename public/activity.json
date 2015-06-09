@@ -1,21 +1,45 @@
  {"quizlist":[
       {
+      "question":"How old are you?",
+      "option1":"20-24",
+      "option2":"25+",
+      "option3":"13-19",
+      "option4":"Under 12"
+      },
+      {
+      "question":"Are you a Stressed Out?",
+      "option1":"Nope, and I don't sress easily",
+      "option2":"Ehh, Sometimes",
+      "option3":"YES, Always",
+      "option4":"Nah I'm just chilling"
+      },
+      {
       "question":"Do you have friends that smoke?",
-      "option1":"Yes",
-      "option2":"Yes, but we're not that close",
-      "option3":"No"
+      "option1":"Yes, but we're not that close",
+      "option2":"Yes",
+      "option3":"Yes and we're really close",
+      "option4":"Nope"
       },
       {
       "question":"Do you have family members that smoke?",
-      "option1":"Yes, my immediate family",
-      "option2":"Yes, but I don't really see them often",
-      "option3":"No"
+      "option1":"Yes, but they're more like a far distant Uncle",
+      "option2":"Yes",
+      "option3":"Yes, my immdeiate family",
+      "option4":"Nope"
       },
       {
       "question":"Have you ever had a significant other or best friend that smoked",
-      "option1":"Yes",
-      "option2":"Yes, not best friend, but a really good friend",
-      "option3":"No"
+      "option1":"Ex-best friend did",
+      "option2":"Yes, not best friend, but we're good friends",
+      "option3":"Yes, my best friend forever smokes",
+      "option4":"Nope"
+      },
+      {
+      "question":"Do you live with anyone that smokes?",
+      "option1":"I use to",
+      "option2":"Yes, one person does",
+      "option3":"Yes, almost everyone I live with smokes",
+      "option4":"Nope"
       }
       ]
       }
