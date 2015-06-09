@@ -2,7 +2,10 @@ var data = '[{"Region":5,"SRA":38,"Area":"Alpine","Year":2012,"Households":5347,
 
 var json = JSON.parse(data);
 console.log(json[0].Households);
-
+var isChartInitializedPop = false;
+function initializeChartPop() {
+	if (!isChartInitializedPop) {
+	isChartInitializedPop = true;
 var chart = c3.generate({
     bindto: '#chart2',
     data: {
@@ -20,6 +23,6 @@ var chart = c3.generate({
         }
     }
 
-});
+	})}};
 
 

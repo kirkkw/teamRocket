@@ -4,7 +4,13 @@
 /////////////////////////////Line chart////////////////////
 
 
-var chart = c3.generate({
+var isChartInitialized = false;
+var chart; 
+function initializeChart() {
+	if (!isChartInitialized) {
+	isChartInitialized = true;
+	
+	chart = c3.generate({
 	bindto: '#chart',
     data: {
         x: 'x',
@@ -24,5 +30,5 @@ var chart = c3.generate({
             }
         }
     }
-});
+})}}
 

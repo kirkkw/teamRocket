@@ -948,7 +948,7 @@ if (typeof jQuery === 'undefined') {
   }
 
   Modal.prototype.show = function (_relatedTarget) {
-    var that = this
+	var that = this
     var e    = $.Event('show.bs.modal', { relatedTarget: _relatedTarget })
 
     this.$element.trigger(e)
@@ -999,6 +999,14 @@ if (typeof jQuery === 'undefined') {
           })
           .emulateTransitionEnd(Modal.TRANSITION_DURATION) :
         that.$element.trigger('focus').trigger(e)
+		
+		if (that.$element.attr('id') == 'portfolioModal4') {
+			initialize()
+		} else if (that.$element.attr('id') == 'portfolioModal1') {
+			initializeChart()
+		} else if (that.$element.attr('id') == 'portfolioModal3'){
+			initializeChartPop()
+		}
     })
   }
 

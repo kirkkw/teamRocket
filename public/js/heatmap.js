@@ -108,7 +108,13 @@ var markLoc = [
   [33.1936 , -117.2411, "Median Income: $61044", json[40].Area] //"Vista"
 ];
 
+var isInitialized = false;
 function initialize() {
+	console.log(isInitialized);
+  if (!isInitialized) {
+	  isInitialized = true;
+  
+	
   var mapOptions = {
     zoom: 15,
     center: new google.maps.LatLng(32.715701, -117.161575),
@@ -152,11 +158,9 @@ function initialize() {
   });
 
   heatmap.setMap(map);
+  }
 }
 
- $('portfolioModal4').on('shown.bs.modal', function(e){
-		google.maps.event.trigger(map, 'resize');
-    });
 
 function toggleHeatmap() {
   heatmap.setMap(heatmap.getMap() ? null : map);
@@ -190,4 +194,6 @@ function changeOpacity() {
   heatmap.set('opacity', heatmap.get('opacity') ? null : 0.2);
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
+//document.getElementById('portfolioModal4').getElementsByClassName("modal-content")[0].addEventListener('mouseenter', initialize);
+//google.maps.event.addDomListener(window, 'load', initialize);
+//google.maps.event.trigger(map, 'resize');
