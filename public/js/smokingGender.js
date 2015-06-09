@@ -3,14 +3,12 @@
 
 /////////////////////////////Line chart////////////////////
 
-
 var isChartInitialized = false;
 var chart; 
 function initializeChart() {
 	if (!isChartInitialized) {
 	isChartInitialized = true;
-	
-	chart = c3.generate({
+var chart = c3.generate({
 	bindto: '#chart',
     data: {
         x: 'x',
@@ -31,4 +29,10 @@ function initializeChart() {
         }
     }
 })}}
+
+chart.resize({
+  height: 480,
+  width: 640
+});
+
 
