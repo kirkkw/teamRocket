@@ -16,7 +16,7 @@ var data = '[{"Region":5,"SRA":38,"Area":"Alpine","Year":2012,"Total Households"
 
 var json = JSON.parse(data);
 
-console.log(json);
+console.log(json[0]["Median Household Income"]);
 
 var map, pointarray, heatmap;
 

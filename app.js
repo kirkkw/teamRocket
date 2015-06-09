@@ -33,7 +33,7 @@ app.set('port', process.env.PORT || 3000);
 
 //routes
 app.get('/', function(req, res){
-  res.render('index');
+  res.render('home');
 });
 
 //Data by smoking gender
@@ -110,7 +110,7 @@ app.get('/delphidata4', function (req, res) {
   });
 
 
-app.get('/home', function(req, res){res.render('home');
+app.get('/index', function(req, res){res.render('index');
 });
 
 app.get('/index2', function(req, res){
