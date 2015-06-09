@@ -1,137 +1,35 @@
-d3.json('/delphiData2', function(error, data) {
+var data = '[{"race_ethnicity":"African American","year":"2001-2002","percent_current_smokers":8.2,"lower_95_percent_confidence_interval":5,"upper_95_percent_confidence_interval":11.4,"number_of_respondents":747},{"race_ethnicity":"African American","year":"2003-2004","percent_current_smokers":7.2,"lower_95_percent_confidence_interval":5.9,"upper_95_percent_confidence_interval":8.5,"number_of_respondents":1054},{"race_ethnicity":"African American","year":"2005-2006","percent_current_smokers":12.7,"lower_95_percent_confidence_interval":9.7,"upper_95_percent_confidence_interval":15.7,"number_of_respondents":1666},{"race_ethnicity":"African American","year":"2007-2008","percent_current_smokers":11.7,"lower_95_percent_confidence_interval":8.8,"upper_95_percent_confidence_interval":14.6,"number_of_respondents":1301},{"race_ethnicity":"African American","year":"2009-2010","percent_current_smokers":14.2,"lower_95_percent_confidence_interval":5.9,"upper_95_percent_confidence_interval":30.1,"number_of_respondents":1013},{"race_ethnicity":"African American","year":"2011-2012","percent_current_smokers":9.5,"lower_95_percent_confidence_interval":6.6,"upper_95_percent_confidence_interval":13.4,"number_of_respondents":1003},{"race_ethnicity":"Asian/Pacific Islander","year":"2001-2002","percent_current_smokers":13.6,"lower_95_percent_confidence_interval":11.2,"upper_95_percent_confidence_interval":16,"number_of_respondents":1978},{"race_ethnicity":"Asian/Pacific Islander","year":"2003-2004","percent_current_smokers":8.4,"lower_95_percent_confidence_interval":6.7,"upper_95_percent_confidence_interval":10.1,"number_of_respondents":2285},{"race_ethnicity":"Asian/Pacific Islander","year":"2005-2006","percent_current_smokers":10.7,"lower_95_percent_confidence_interval":9.3,"upper_95_percent_confidence_interval":12.1,"number_of_respondents":4093},{"race_ethnicity":"Asian/Pacific Islander","year":"2007-2008","percent_current_smokers":10.5,"lower_95_percent_confidence_interval":8.3,"upper_95_percent_confidence_interval":12.7,"number_of_respondents":3264},{"race_ethnicity":"Asian/Pacific Islander","year":"2009-2010","percent_current_smokers":10.3,"lower_95_percent_confidence_interval":7.5,"upper_95_percent_confidence_interval":13.1,"number_of_respondents":3075},{"race_ethnicity":"Asian/Pacific Islander","year":"2011-2012","percent_current_smokers":5.9,"lower_95_percent_confidence_interval":4.8,"upper_95_percent_confidence_interval":7.2,"number_of_respondents":2785},{"race_ethnicity":"Hispanic/Latino","year":"2001-2002","percent_current_smokers":14,"lower_95_percent_confidence_interval":12.4,"upper_95_percent_confidence_interval":15.6,"number_of_respondents":3433},{"race_ethnicity":"Hispanic/Latino","year":"2003-2004","percent_current_smokers":13.5,"lower_95_percent_confidence_interval":12,"upper_95_percent_confidence_interval":15,"number_of_respondents":4691},{"race_ethnicity":"Hispanic/Latino","year":"2005-2006","percent_current_smokers":14.3,"lower_95_percent_confidence_interval":13.1,"upper_95_percent_confidence_interval":15.5,"number_of_respondents":8331},{"race_ethnicity":"Hispanic/Latino","year":"2007-2008","percent_current_smokers":13.9,"lower_95_percent_confidence_interval":12.8,"upper_95_percent_confidence_interval":15,"number_of_respondents":10099},{"race_ethnicity":"Hispanic/Latino","year":"2009-2010","percent_current_smokers":14.1,"lower_95_percent_confidence_interval":13.1,"upper_95_percent_confidence_interval":15.1,"number_of_respondents":11735},{"race_ethnicity":"Hispanic/Latino","year":"2011-2012","percent_current_smokers":10.4,"lower_95_percent_confidence_interval":9.2,"upper_95_percent_confidence_interval":11.7,"number_of_respondents":9549},{"race_ethnicity":"Non-Hispanic White","year":"2001-2002","percent_current_smokers":19.9,"lower_95_percent_confidence_interval":17.7,"upper_95_percent_confidence_interval":22.1,"number_of_respondents":5477},{"race_ethnicity":"Non-Hispanic White","year":"2003-2004","percent_current_smokers":15.8,"lower_95_percent_confidence_interval":14.8,"upper_95_percent_confidence_interval":16.8,"number_of_respondents":6152},{"race_ethnicity":"Non-Hispanic White","year":"2005-2006","percent_current_smokers":18.3,"lower_95_percent_confidence_interval":17,"upper_95_percent_confidence_interval":19.6,"number_of_respondents":9902},{"race_ethnicity":"Non-Hispanic White","year":"2007-2008","percent_current_smokers":17.6,"lower_95_percent_confidence_interval":15.8,"upper_95_percent_confidence_interval":19.4,"number_of_respondents":6863},{"race_ethnicity":"Non-Hispanic White","year":"2009-2010","percent_current_smokers":14.7,"lower_95_percent_confidence_interval":13.4,"upper_95_percent_confidence_interval":16,"number_of_respondents":5972},{"race_ethnicity":"Non-Hispanic White","year":"2011-2012","percent_current_smokers":13,"lower_95_percent_confidence_interval":11.4,"upper_95_percent_confidence_interval":14.7,"number_of_respondents":5041}]';
 
-var dataset = ["2001-2002", "2003-2004", "2005-2006","2007-2008",
-                "2009-2010","2011-2012"]
+var json = JSON.parse(data);
 
+console.log(json[0]);
 
-var n = 4, // number of layers
-    m = 6, // number of samples per layer
-    stack = d3.layout.stack(),
-    layers = stack(d3.range(n).map(function() { return bumpLayer(m, .1); })),
-    yGroupMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y; }); }),
-    yStackMax = d3.max(layers, function(layer) { return d3.max(layer, function(d) { return d.y0 + d.y; }); });
-
-var margin = {top: 40, right: 10, bottom: 20, left: 30},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-var x = d3.scale.ordinal()
-    .domain(d3.range(m))
-    .rangeRoundBands([0, width], .08);
-
-var y = d3.scale.linear()
-    .domain([0, yStackMax])
-    .range([height, 0]);
-
-var color = d3.scale.linear()
-    .domain([0, n - 1])
-    .range(["#aad", "#556"]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .tickSize(0)
-    .tickPadding(6) 
-    .tickFormat(function(d){return dataset[d];})
-    .orient("bottom");
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .tickSize(0)
-    .tickPadding(6)
-    .orient("left");
-
-var svg = d3.select("#ethnicityGraph").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-
-var layer = svg.selectAll(".layer")
-    .data(layers)
-  .enter().append("g")
-    .attr("class", "layer")
-    .style("fill", function(d, i) { return color(i); });
-
-var rect = layer.selectAll("rect")
-    .data(function(d) { return d; })
-  .enter().append("rect")
-    .attr("x", function(d) { return x(d.x); })
-    .attr("y", function(d) { return y(yStackMax); })
-    .attr("width", x.rangeBand())
-    .attr("height", 0);
-
-rect.transition()
-    .delay(function(d, i) { return i * 10; })
-    .attr("y", function(d) { return y(d.y0 + d.y); })
-    .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); });
-
-svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
-
-svg.append("g")
-    .attr("class", "y axis")
-    .attr("transform", "translate(0,0)")
-    .call(yAxis);
-
-
-d3.selectAll("input").on("change", change);
-
-var timeout = setTimeout(function() {
-  d3.select("input[value=\"grouped\"]").property("checked", true).each(change);
-}, 2000);
-
-function change() {
-  clearTimeout(timeout);
-  if (this.value === "grouped") transitionGrouped();
-  else transitionStacked();
-}
-
-function transitionGrouped() {
-  y.domain([0, yGroupMax]);
-
-  rect.transition()
-      .duration(500)
-      .delay(function(d, i) { return i * 10; })
-      .attr("x", function(d, i, j) { return x(d.x) + x.rangeBand() / n * j; })
-      .attr("width", x.rangeBand() / n)
-    .transition()
-      .attr("y", function(d) { return y(d.y); })
-      .attr("height", function(d) { return height - y(d.y); });
-}
-
-function transitionStacked() {
-  y.domain([0, yStackMax]);
-
-  rect.transition()
-      .duration(500)
-      .delay(function(d, i) { return i * 10; })
-      .attr("y", function(d) { return y(d.y0 + d.y); })
-      .attr("height", function(d) { return y(d.y0) - y(d.y0 + d.y); })
-    .transition()
-      .attr("x", function(d) { return x(d.x); })
-      .attr("width", x.rangeBand());
-}
-
-// Inspired by Lee Byron's test data generator.
-function bumpLayer(n, o) {
-
-  function bump(a) {
-    var x = 1 / (.1 + Math.random()),
-        y = 2 * Math.random() - .5,
-        z = 10 / (.1 + Math.random());
-    for (var i = 0; i < n; i++) {
-      var w = (i / n - y) * z;
-      a[i] += x * Math.exp(-w * w);
+var chart = c3.generate({
+    bindto: '#chart3',
+    data: {
+      x: 'x',
+        columns: [
+        ['x', '2002-01-01', '2004-01-01', '2006-01-01', '2008-01-01', '2010-01-01', '2012-01-01'],
+            [json[0].race_ethnicity, json[0].percent_current_smokers, json[1].percent_current_smokers, json[2].percent_current_smokers, json[3].percent_current_smokers, json[4].percent_current_smokers, json[5].percent_current_smokers], //African-American
+            [json[6].race_ethnicity, json[6].percent_current_smokers, json[7].percent_current_smokers, json[8].percent_current_smokers, json[9].percent_current_smokers, json[10].percent_current_smokers, json[11].percent_current_smokers], //Asian-American
+            [json[12].race_ethnicity, json[12].percent_current_smokers, json[13].percent_current_smokers, json[14].percent_current_smokers, json[15].percent_current_smokers, json[16].percent_current_smokers, json[17].percent_current_smokers], //Hispanic
+            [json[18].race_ethnicity, json[18].percent_current_smokers, json[19].percent_current_smokers, json[20].percent_current_smokers, json[21].percent_current_smokers, json[22].percent_current_smokers, json[23].percent_current_smokers]//White
+        ],
+        type: 'bar'
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d'
+            }
+        }
     }
-  }
-
-  var a = [], i;
-  for (i = 0; i < n; ++i) a[i] = o + o * Math.random();
-  for (i = 0; i < 5; ++i) bump(a);
-  return a.map(function(d, i) { return {x: i, y: Math.max(0, d)}; });
-}
-
 });
+
+
+chart.resize({
+  height: 480,
+  width: 640
+});
+
